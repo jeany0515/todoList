@@ -8,7 +8,9 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
@@ -26,5 +28,18 @@ public class TodoServiceTest {
         List<Todo> todosSaved = todoService.getTodos();
         //then
         assertIterableEquals(todos, todosSaved);
+    }
+
+    @Test
+    public void should_return_todo_when_update_todos_given_todo() {
+        //given
+        TodoRepository repository = mock(TodoRepository.class);
+        Todo todo = new Todo(1, "123", true);
+        TodoService todoService = new TodoServiceImpl(repository);
+        given(repository.save(any(Todo.class))).willReturn(todo);
+        //when
+        Todo todoSaved = todoService.updateTodo(todo.getId(), todo);
+        //then
+        assertEquals(todo, todoSaved);
     }
 }
