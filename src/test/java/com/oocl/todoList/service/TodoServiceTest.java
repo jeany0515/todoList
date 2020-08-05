@@ -47,7 +47,7 @@ public class TodoServiceTest {
     }
 
     @Test
-    public void should_return_true_when_delete_todo_given_id() {
+    public void should_return_true_when_delete_todo_given_id() throws NotFoundException {
         //given
         TodoRepository repository = mock(TodoRepository.class);
         TodoService todoService = new TodoServiceImpl(repository);

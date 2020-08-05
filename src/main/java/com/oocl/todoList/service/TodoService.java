@@ -13,7 +13,7 @@ public interface TodoService {
 
     Todo updateTodo(Integer id, Todo todo) throws NotFoundException;
 
-    Boolean deleteTodo(Integer id);
+    Boolean deleteTodo(Integer id) throws NotFoundException;
 
     Todo addTodo(Todo todo);
 }

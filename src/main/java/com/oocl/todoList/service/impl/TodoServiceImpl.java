@@ -30,7 +30,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public Todo updateTodo(Integer id, Todo todo) throws NotFoundException {
-        if (!isTodoExist(id)) {
+        if (isTodoExisted(id)) {
             throw new NotFoundException(TODO_NOT_FOUND);
         }
         todo.setId(id);
@@ -38,8 +38,12 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public Boolean deleteTodo(Integer id) {
-        return null;
+    public Boolean deleteTodo(Integer id) throws NotFoundException {
+        if (isTodoExisted(id)) {
+            throw new NotFoundException(TODO_NOT_FOUND);
+        }
+        todoRepository.deleteById(id);
+        return true;
     }
 
     @Override
@@ -47,7 +51,7 @@ public class TodoServiceImpl implements TodoService {
         return null;
     }
 
-    public boolean isTodoExist(Integer id) {
-        return todoRepository.findById(id).isPresent();
+    public boolean isTodoExisted(Integer id) {
+        return !todoRepository.findById(id).isPresent();
     }
 }
