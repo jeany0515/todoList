@@ -48,7 +48,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public Todo addTodo(Todo todo) {
-        return null;
+        return todoRepository.save(todo);
     }
 
     public boolean isTodoExisted(Integer id) {
