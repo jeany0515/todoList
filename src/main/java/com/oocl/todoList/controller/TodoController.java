@@ -1,8 +1,10 @@
 package com.oocl.todoList.controller;
 
 import com.oocl.todoList.entity.Todo;
+import com.oocl.todoList.exception.NotFoundException;
 import com.oocl.todoList.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +28,13 @@ public class TodoController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.ACCEPTED)
     public Todo addTodo(@RequestBody Todo todo) {
         return todoService.addTodo(todo);
+    }
+
+    @PutMapping("/{id}")
+    public Todo updateTodo(@PathVariable Integer id, @RequestBody Todo todo) throws NotFoundException {
+        return todoService.updateTodo(id, todo);
     }
 }

@@ -58,7 +58,7 @@ public class TodoIntegrationTest {
                 .contentType(MediaType.APPLICATION_JSON).content("{\n" +
                         "    \"content\":\"hello\"\n" +
                         "}"))
-                .andExpect(status().isOk())
+                .andExpect(status().isAccepted())
                 .andExpect(jsonPath("$.content").value("hello"));
     }
 
