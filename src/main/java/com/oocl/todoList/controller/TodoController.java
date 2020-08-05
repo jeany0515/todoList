@@ -37,4 +37,9 @@ public class TodoController {
     public Todo updateTodo(@PathVariable Integer id, @RequestBody Todo todo) throws NotFoundException {
         return todoService.updateTodo(id, todo);
     }
+
+    @DeleteMapping("/{id}")
+    public Boolean deleteTodo(@PathVariable Integer id) throws NotFoundException {
+        return todoService.deleteTodo(id);
+    }
 }

@@ -64,9 +64,10 @@ public class TodoIntegrationTest {
     @Test
     public void should_return_todo_when_update_todo_given_todo() throws Exception {
         //when then
-        mockMvc.perform(post("/todos/" + this.todoId)
+        mockMvc.perform(put("/todos/" + this.todoId)
                 .contentType(MediaType.APPLICATION_JSON).content("{\n" +
-                        "    \"status\":\"true\"\n" +
+                        "    \"content\":\"hello\",\n" +
+                        "    \"status\":true\n" +
                         "}"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.status").value(true));
