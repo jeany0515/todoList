@@ -13,7 +13,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -48,5 +49,16 @@ public class TodoIntegrationTest {
                 .andExpect(jsonPath("$", hasSize(2)))
                 .andExpect(jsonPath("$[0].id").value(todoId))
                 .andExpect(jsonPath("$[0].content").value("hello"));
+    }
+
+    @Test
+    public void should_return_todo_when_add_todo_given_todo() throws Exception {
+        //when then
+        mockMvc.perform(post("/todos")
+                .contentType(MediaType.APPLICATION_JSON).content("{\n" +
+                        "    \"content\":\"hello\"\n" +
+                        "}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.content").value("hello"));
     }
 }
