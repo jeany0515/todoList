@@ -1,12 +1,18 @@
 plugins {
-    id 'org.springframework.boot' version '2.3.1.BUILD-SNAPSHOT'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
+    id 'jacoco'
 }
 
 repositories {
     maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
 }
+
+jacocoTestReport {
+    reports {
+        csv.enabled true
+    }
+}
+
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.3.1.RELEASE'
@@ -18,14 +24,17 @@ dependencies {
     testCompile "org.mockito:mockito-core:3.4.0"
     compileOnly 'org.projectlombok:lombok:1.18.12'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
     testCompileOnly 'org.projectlombok:lombok:1.18.12'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
     compile group: 'org.flywaydb', name: 'flyway-core', version: '6.5.3'
-
 }
+
 group = 'com.oocl'
 version = '0.0.1-SNAPSHOT'
 description = 'todo-list'
+sourceCompatibility = '1.8'
+
 test {
     useJUnitPlatform()
 }
