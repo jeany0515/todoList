@@ -13,8 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -71,5 +70,13 @@ public class TodoIntegrationTest {
                         "}"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.status").value(true));
+    }
+
+    @Test
+    public void should_return_true_when_delete_todo_given_id() throws Exception {
+        //when then
+        mockMvc.perform(delete("/todos/" + this.todoId))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").value(true));
     }
 }
