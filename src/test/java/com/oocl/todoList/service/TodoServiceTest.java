@@ -1,16 +1,19 @@
 package com.oocl.todoList.service;
 
 import com.oocl.todoList.entity.Todo;
+import com.oocl.todoList.exception.NotFoundException;
 import com.oocl.todoList.repository.TodoRepository;
 import com.oocl.todoList.service.impl.TodoServiceImpl;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
@@ -31,12 +34,13 @@ public class TodoServiceTest {
     }
 
     @Test
-    public void should_return_todo_when_update_todos_given_todo() {
+    public void should_return_todo_when_update_todos_given_todo() throws NotFoundException {
         //given
         TodoRepository repository = mock(TodoRepository.class);
         Todo todo = new Todo(1, "123", true);
         TodoService todoService = new TodoServiceImpl(repository);
         given(repository.save(any(Todo.class))).willReturn(todo);
+        given(repository.findById(anyInt())).willReturn(Optional.of(new Todo()));
         //when
         Todo todoSaved = todoService.updateTodo(todo.getId(), todo);
         //then
