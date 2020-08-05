@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.BDDMockito.given;
@@ -34,7 +33,7 @@ public class TodoServiceTest {
     }
 
     @Test
-    public void should_return_todo_when_update_todos_given_todo() throws NotFoundException {
+    public void should_return_todo_when_update_todo_given_todo() throws NotFoundException {
         //given
         TodoRepository repository = mock(TodoRepository.class);
         Todo todo = new Todo(1, "123", true);
@@ -45,5 +44,17 @@ public class TodoServiceTest {
         Todo todoSaved = todoService.updateTodo(todo.getId(), todo);
         //then
         assertEquals(todo, todoSaved);
+    }
+
+    @Test
+    public void should_return_true_when_delete_todo_given_id() {
+        //given
+        TodoRepository repository = mock(TodoRepository.class);
+        TodoService todoService = new TodoServiceImpl(repository);
+        given(repository.findById(anyInt())).willReturn(Optional.of(new Todo()));
+        //when
+        Boolean success = todoService.deleteTodo(1);
+        //then
+        assertTrue(success);
     }
 }
