@@ -21,6 +21,6 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String text;
-    private Boolean done;
+    private String content;
+    private Boolean status;
 }
