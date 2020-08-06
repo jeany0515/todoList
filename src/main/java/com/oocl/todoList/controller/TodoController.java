@@ -39,7 +39,7 @@ public class TodoController {
     }
 
     @DeleteMapping("/{id}")
-    public Boolean deleteTodo(@PathVariable Integer id) throws NotFoundException {
-        return todoService.deleteTodo(id);
+    public void deleteTodo(@PathVariable Integer id) throws NotFoundException {
+        todoService.deleteTodo(id);
     }
 }
