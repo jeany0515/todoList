@@ -7,13 +7,13 @@ pipeline {
     stage('test') {
       steps {
         echo 'test'
-        bat 'gradlew test'
+        bat 'gradle test'
       }
     }
     stage('build') {
       steps {
         echo 'build'
-        bat 'gradlew build'
+        bat 'gradle build'
       }
     }
     stage('deploy') {
