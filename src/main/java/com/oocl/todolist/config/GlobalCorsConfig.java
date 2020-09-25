@@ -1,4 +1,4 @@
-package com.oocl.todoList.config;
+package com.oocl.todolist.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

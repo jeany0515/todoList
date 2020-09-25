@@ -1,4 +1,4 @@
-package com.oocl.todoList.entity;
+package com.oocl.todolist.entity;
 
 
 import lombok.AllArgsConstructor;

@@ -1,8 +1,8 @@
-package com.oocl.todoList.controller;
+package com.oocl.todolist.controller;
 
-import com.oocl.todoList.entity.Todo;
-import com.oocl.todoList.exception.NotFoundException;
-import com.oocl.todoList.service.TodoService;
+import com.oocl.todolist.entity.Todo;
+import com.oocl.todolist.exception.NotFoundException;
+import com.oocl.todolist.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

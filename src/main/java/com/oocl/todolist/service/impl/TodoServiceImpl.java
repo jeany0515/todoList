@@ -1,9 +1,9 @@
-package com.oocl.todoList.service.impl;
+package com.oocl.todolist.service.impl;
 
-import com.oocl.todoList.entity.Todo;
-import com.oocl.todoList.exception.NotFoundException;
-import com.oocl.todoList.repository.TodoRepository;
-import com.oocl.todoList.service.TodoService;
+import com.oocl.todolist.entity.Todo;
+import com.oocl.todolist.exception.NotFoundException;
+import com.oocl.todolist.repository.TodoRepository;
+import com.oocl.todolist.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,8 @@
-package com.oocl.todoList.controller;
+package com.oocl.todolist.controller;
 
 
-import com.oocl.todoList.entity.Todo;
-import com.oocl.todoList.repository.TodoRepository;
+import com.oocl.todolist.entity.Todo;
+import com.oocl.todolist.repository.TodoRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

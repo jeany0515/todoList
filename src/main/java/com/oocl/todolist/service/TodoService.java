@@ -1,7 +1,7 @@
-package com.oocl.todoList.service;
+package com.oocl.todolist.service;
 
-import com.oocl.todoList.entity.Todo;
-import com.oocl.todoList.exception.NotFoundException;
+import com.oocl.todolist.entity.Todo;
+import com.oocl.todolist.exception.NotFoundException;
 
 import java.util.List;
 

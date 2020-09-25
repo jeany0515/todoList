@@ -1,9 +1,9 @@
-package com.oocl.todoList.controller;
+package com.oocl.todolist.controller;
 
-import com.oocl.todoList.exception.NotFoundException;
-import com.oocl.todoList.repository.TodoRepository;
-import com.oocl.todoList.service.TodoService;
-import com.oocl.todoList.service.impl.TodoServiceImpl;
+import com.oocl.todolist.exception.NotFoundException;
+import com.oocl.todolist.repository.TodoRepository;
+import com.oocl.todolist.service.TodoService;
+import com.oocl.todolist.service.impl.TodoServiceImpl;
 import org.junit.Test;
 
 import java.util.Optional;

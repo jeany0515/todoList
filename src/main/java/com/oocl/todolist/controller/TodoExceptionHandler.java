@@ -1,6 +1,6 @@
-package com.oocl.todoList.controller;
+package com.oocl.todolist.controller;
 
-import com.oocl.todoList.exception.NotFoundException;
+import com.oocl.todolist.exception.NotFoundException;
 import dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
